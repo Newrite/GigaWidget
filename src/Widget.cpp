@@ -1687,9 +1687,9 @@ auto GigaWidget::apply_layout(const RE::GPtr<GigaWidget>& giga_widget) -> void
   giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget._yscale", RE::GFxValue{settings.fScaleEquipmentWidget});
   giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget._xscale", RE::GFxValue{settings.fScaleEquipmentWidget});
 
-  giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.rightHandText._x", RE::GFxValue{settings.fRightTextX});
-  giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.rightHandText._y", RE::GFxValue{settings.fRightTextY});
-  giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.rightHandText._visible",
+  giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.RightHandText._x", RE::GFxValue{settings.fRightTextX});
+  giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.RightHandText._y", RE::GFxValue{settings.fRightTextY});
+  giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.RightHandText._visible",
                                     RE::GFxValue{settings.bRightHandText});
 
   giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.rightHandIcon._x",
@@ -1699,9 +1699,9 @@ auto GigaWidget::apply_layout(const RE::GPtr<GigaWidget>& giga_widget) -> void
   giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.rightHandIcon._visible",
                                     RE::GFxValue{settings.bRightHandIcon});
 
-  giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.leftHandText._x", RE::GFxValue{settings.fLeftTextX});
-  giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.leftHandText._y", RE::GFxValue{settings.fLeftTextY});
-  giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.leftHandText._visible",
+  giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.LeftHandText._x", RE::GFxValue{settings.fLeftTextX});
+  giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.LeftHandText._y", RE::GFxValue{settings.fLeftTextY});
+  giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.LeftHandText._visible",
                                     RE::GFxValue{left_hand_text_visible});
 
   giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.leftHandIcon._x",
@@ -1711,11 +1711,11 @@ auto GigaWidget::apply_layout(const RE::GPtr<GigaWidget>& giga_widget) -> void
   giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.leftHandIcon._visible",
                                     RE::GFxValue{settings.bLeftHandIcon});
 
-  giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.centerHandText._x",
+  giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.CenterText._x",
                                     RE::GFxValue{settings.fCenterTextX});
-  giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.centerHandText._y",
+  giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.CenterText._y",
                                     RE::GFxValue{settings.fCenterTextY});
-  giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.centerHandText._visible",
+  giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.CenterText._visible",
                                     RE::GFxValue{settings.bCenterHandText});
 
   giga_widget->uiMovie->SetVariable("mirelgigawidget.BaseWidget.centerHandIcon._x",
@@ -2024,10 +2024,10 @@ auto GigaWidget::apply_layout(const RE::GPtr<GigaWidget>& giga_widget) -> void
       settings.bWoundInjuryDiseaseMenuDebug ? 3 : get_wound_level(settings)};
   giga_widget->uiMovie->InvokeNoReturn("mirelgigawidget.setWoundInjuryDisease", wound_injury_disease, 3);
 
-  const RE::GFxValue aligments[3]{get_aligment_by_int(settings.iLeftTextAligment).c_str(),
-                                  get_aligment_by_int(settings.iCenterTextAligment).c_str(),
-                                  get_aligment_by_int(settings.iRightTextAligment).c_str()};
-  giga_widget->uiMovie->InvokeNoReturn("mirelgigawidget.setTextsAligment", aligments, 3);
+  const RE::GFxValue aligments[3]{settings.iCenterTextAligment,
+                                  settings.iLeftTextAligment,
+                                  settings.iRightTextAligment};
+  giga_widget->uiMovie->InvokeNoReturn("mirelgigawidget.setEquipmentTextAligment", aligments, 3);
 
   let survival_weather_settings = SurvivalSettings{
       settings.bWeatherWidget, settings.fWeatherWidgetX, settings.fWeatherWidgetY, settings.fScaleWeatherWidget, false};

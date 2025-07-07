@@ -467,6 +467,22 @@ static void __stdcall RenderEquipmentWidget()
                                             Settings::fRightTextYVar,
                                             settings.fRightTextY,
                                             {.vmin = Y_V_MIN, .vmax = Y_V_MAX, .format = FORMAT_FLOAT_02});
+  
+  auto right_aligment_right = settings.iRightTextAligment == 2;
+  auto right_aligment_center = settings.iRightTextAligment == 0;
+  auto right_aligment_left = settings.iRightTextAligment == 1;
+  if (ImGui::Checkbox("Right Text: Alignment Right", &right_aligment_right)) {
+    settings.iRightTextAligment = 2;
+    settings.write_setting_int(Settings::iRightTextAligmentVar, 2);
+  }
+  if (ImGui::Checkbox("Right Text: Alignment Center", &right_aligment_center)) {
+    settings.iRightTextAligment = 0;
+    settings.write_setting_int(Settings::iRightTextAligmentVar, 0);
+  }
+  if (ImGui::Checkbox("Right Text: Alignment Left", &right_aligment_left)) {
+    settings.iRightTextAligment = 1;
+    settings.write_setting_int(Settings::iRightTextAligmentVar, 1);
+  }
 
   ImGui::Separator();
   ImGui::SeparatorText("Left Hand");
@@ -492,6 +508,22 @@ static void __stdcall RenderEquipmentWidget()
                                             settings.fLeftTextY,
                                             {.vmin = Y_V_MIN, .vmax = Y_V_MAX, .format = FORMAT_FLOAT_02});
 
+  auto left_aligment_right = settings.iLeftTextAligment == 2;
+  auto left_aligment_center = settings.iLeftTextAligment == 0;
+  auto left_aligment_left = settings.iLeftTextAligment == 1;
+  if (ImGui::Checkbox("Left Text: Alignment Right", &left_aligment_right)) {
+    settings.iLeftTextAligment = 2;
+    settings.write_setting_int(Settings::iLeftTextAligmentVar, 2);
+  }
+  if (ImGui::Checkbox("Left Text: Alignment Center", &left_aligment_center)) {
+    settings.iLeftTextAligment = 0;
+    settings.write_setting_int(Settings::iLeftTextAligmentVar, 0);
+  }
+  if (ImGui::Checkbox("Left Text: Alignment Left", &left_aligment_left)) {
+    settings.iLeftTextAligment = 1;
+    settings.write_setting_int(Settings::iLeftTextAligmentVar, 1);
+  }
+
   ImGui::Separator();
   ImGui::SeparatorText("Ability");
   ImGui::Separator();
@@ -515,6 +547,22 @@ static void __stdcall RenderEquipmentWidget()
                                             Settings::fCenterTextYVar,
                                             settings.fCenterTextY,
                                             {.vmin = Y_V_MIN, .vmax = Y_V_MAX, .format = FORMAT_FLOAT_02});
+
+  auto center_aligment_right = settings.iCenterTextAligment == 2;
+  auto center_aligment_center = settings.iCenterTextAligment == 0;
+  auto center_aligment_left = settings.iCenterTextAligment == 1;
+  if (ImGui::Checkbox("CenterText: Alignment Right", &center_aligment_right)) {
+    settings.iCenterTextAligment = 2;
+    settings.write_setting_int(Settings::iCenterTextAligmentVar, 2);
+  }
+  if (ImGui::Checkbox("CenterText: Alignment: Center", &center_aligment_center)) {
+    settings.iCenterTextAligment = 0;
+    settings.write_setting_int(Settings::iCenterTextAligmentVar, 0);
+  }
+  if (ImGui::Checkbox("CenterText: Alignment: Left", &center_aligment_left)) {
+    settings.iCenterTextAligment = 1;
+    settings.write_setting_int(Settings::iCenterTextAligmentVar, 1);
+  }
   
 }
 

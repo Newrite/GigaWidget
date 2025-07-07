@@ -632,7 +632,7 @@ struct Settings final
 
     ini_giga_settings.LoadFile(path_to_settings);
     if (!ini_giga_settings.IsEmpty()) {
-      loge("Settings ini is empty.");
+      //loge("Settings ini is empty.");
 
       // Equipment Widget
       read_int(ini_giga_settings, iLeftTextAligmentVar, iLeftTextAligment);
